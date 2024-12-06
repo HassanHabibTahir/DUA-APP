@@ -9,13 +9,14 @@ import {
 } from "react-native";
 import Entypo from "@expo/vector-icons/Entypo";
 import { useNavigation } from "@react-navigation/native";
+import Colors from "../../theme/colors";
 
+const Logo = require("../../assets/logo.png");
 export default function HomeScreen() {
   const [loading, setLoading] = useState(true);
-  const navigation = useNavigation<any>(); // Access navigation
-
+  const navigation = useNavigation<any>(); 
   const handleGetStarted = () => {
-    navigation.navigate("Tabs"); // Navigate to Tabs screen
+    navigation.navigate("Tabs"); 
   };
 
   return (
@@ -24,23 +25,14 @@ export default function HomeScreen() {
         contentContainerStyle={styles.content}
         showsVerticalScrollIndicator={false}
       >
-        <Image
-          source={{
-            uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1PcuKEBA3gMZXB67TqFYzeMj3gdufSu3J_A&s",
-          }}
-          style={styles.logo}
-        />
-
+        <Image source={Logo} style={styles.logo} />
         {/* Main Title */}
-        <Text style={styles.title}>Welcome to</Text>
         <Text style={[styles.title, styles.brand]}>DUA BUSINESS</Text>
-
         {/* Subtitle */}
         <Text style={styles.subtitle}>
           Experience with the Dua Business platform
         </Text>
       </ScrollView>
-
       {/* Button at the bottom */}
       <View style={styles.buttonContainer}>
         <TouchableOpacity style={styles.button} onPress={handleGetStarted}>
@@ -85,25 +77,25 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   brand: {
-    color: "#12BB70",
+    color: Colors.text,
   },
   subtitle: {
     fontSize: 18,
     fontWeight: "600",
-    color: "#555",
     textAlign: "center",
     marginVertical: 10,
+    color: Colors.subtitle,
   },
   buttonContainer: {
     paddingHorizontal: 20,
     marginBottom: 30,
   },
   button: {
-    backgroundColor: "#12BB70",
+    backgroundColor: Colors.button,
     paddingVertical: 15,
     paddingHorizontal: 40,
     borderRadius: 8,
-    shadowColor: "#000",
+    shadowColor:Colors.shadow,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 5,

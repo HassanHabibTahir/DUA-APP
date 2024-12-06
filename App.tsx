@@ -5,27 +5,48 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./ui/home/home.ui";
 import Tabs from "./stack/stack";
 import { NativeBaseProvider } from "native-base";
+import ChatComponent from "./ui/chats/chat/chat";
+import ProfileScreen from "./ui/chats/profile/profile";
+import customTheme from "./theme/theme";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <NativeBaseProvider>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen name="Tabs" component={Tabs}   options={{
-             headerShown: true, 
-             headerBackVisible: true, 
-             headerLeft: () => null, 
-          }} />
-      </Stack.Navigator>
+      <NativeBaseProvider theme={customTheme}>
+        <Stack.Navigator initialRouteName="Chats">
+          <Stack.Screen
+            name="Chats"
+            component={HomeScreen}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="ChatComponent"
+            component={ChatComponent}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="Profile"
+            component={ProfileScreen}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="Tabs"
+            component={Tabs}
+            options={{
+              headerShown: false,
+              headerBackVisible: false,
+              headerLeft: () => null,
+            }}
+          />
+        </Stack.Navigator>
       </NativeBaseProvider>
     </NavigationContainer>
   );
