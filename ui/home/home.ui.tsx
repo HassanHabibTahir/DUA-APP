@@ -16,7 +16,7 @@ export default function HomeScreen() {
   const [loading, setLoading] = useState(true);
   const navigation = useNavigation<any>(); 
   const handleGetStarted = () => {
-    navigation.navigate("Tabs"); 
+    navigation.navigate("Login"); 
   };
 
   return (

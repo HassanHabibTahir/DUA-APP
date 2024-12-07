@@ -8,6 +8,8 @@ import { NativeBaseProvider } from "native-base";
 import ChatComponent from "./ui/chats/chat/chat";
 import ProfileScreen from "./ui/chats/profile/profile";
 import customTheme from "./theme/theme";
+import LoginScreen from "./ui/auth/login";
+import OTPVerificationScreen from "./ui/auth/verification";
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +25,25 @@ export default function App() {
               headerShown: false,
             }}
           />
+          <Stack.Screen
+            name="Login"
+            component={LoginScreen}
+            options={{
+              headerShown: false,
+            }}
+          />
+          {/* otp verificaion */}
+         <Stack.Screen
+         name="Otp"
+         component={OTPVerificationScreen}
+         options={{
+           headerShown: false,
+         }}
+         
+         />
+
+
+
           <Stack.Screen
             name="ChatComponent"
             component={ChatComponent}
