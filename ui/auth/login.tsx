@@ -114,7 +114,7 @@ export default function FullScreenLoginScreen({ navigation }: any) {
             borderRadius="full"
             py="3"
             _text={{ fontWeight: "bold", fontSize: "md", color: "white" }}
-            onPress={() =>  navigation.navigate('Otp')}
+            onPress={() => navigation.navigate("Otp")}
           >
             Log In
           </Button>
@@ -134,9 +134,9 @@ export default function FullScreenLoginScreen({ navigation }: any) {
             <Text
               color="black"
               fontWeight="bold"
-              onPress={() => alert("Sign Up Pressed")}
+              // onPress={() => alert("Sign Up Pressed")}
             >
-              Sign Up
+              Admin will add it.
             </Text>
           </Text>
         </VStack>

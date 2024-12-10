@@ -12,12 +12,12 @@ import {
   HStack,
 } from "native-base";
 import { MaterialIcons } from "@expo/vector-icons";
-import Colors from "../../theme/colors"; // Assuming this is where your custom colors are stored
+import Colors from "../../theme/colors";
 
 const { width, height } = Dimensions.get("window");
 
 export default function OTPVerificationScreen({ navigation }: any) {
-  const [otp, setOtp] = useState(["", "", "", "",""]);
+  const [otp, setOtp] = useState(["", "", "", "", ""]);
 
   const handleBackPress = () => {
     navigation.goBack();
@@ -32,7 +32,6 @@ export default function OTPVerificationScreen({ navigation }: any) {
   return (
     <NativeBaseProvider>
       <View style={styles.container}>
-        {/* Back Button */}
         <Pressable onPress={handleBackPress} style={styles.backButton}>
           <Icon
             as={<MaterialIcons name="arrow-back" />}
@@ -40,15 +39,11 @@ export default function OTPVerificationScreen({ navigation }: any) {
             color="white"
           />
         </Pressable>
-
-        {/* Top Logo */}
         <Image
           source={require("../../assets/s-logo.png")}
           style={styles.logo}
           resizeMode="contain"
         />
-
-        {/* OTP Verification Form */}
         <VStack space={6} width="90%" alignSelf="center">
           <Text
             fontSize="3xl"
@@ -59,10 +54,8 @@ export default function OTPVerificationScreen({ navigation }: any) {
             Verify Your Account
           </Text>
           <Text fontSize="sm" textAlign="center" color="gray.600">
-            Enter the OTP sent to your email to verify your account.
+            Enter the OTP sent to your email to verify your account....
           </Text>
-
-          {/* OTP Inputs */}
           <HStack space={3} justifyContent="center">
             {otp.map((digit, index) => (
               <FormControl key={index} width="12%" isRequired>
@@ -86,8 +79,6 @@ export default function OTPVerificationScreen({ navigation }: any) {
               </FormControl>
             ))}
           </HStack>
-
-          {/* Resend OTP */}
           <Text
             textAlign="center"
             fontSize="sm"
@@ -100,14 +91,13 @@ export default function OTPVerificationScreen({ navigation }: any) {
             </Text>
           </Text>
 
-          {/* Verify Button */}
           <Button
             bg={Colors.button}
             _pressed={{ bg: "gray.800" }}
             borderRadius="full"
             py="3"
             _text={{ fontWeight: "bold", fontSize: "md", color: "white" }}
-            onPress={() => alert("OTP Verified")}
+            onPress={() => navigation.navigate("Tabs")}
           >
             Verify OTP
           </Button>
@@ -135,11 +125,11 @@ const styles = StyleSheet.create({
     left: 20,
     padding: 10,
     borderRadius: 50,
-    backgroundColor: Colors.button, // Custom background color for the back button
+    backgroundColor: Colors.button,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
     shadowRadius: 4,
-    elevation: 5, // For Android shadow effect
+    elevation: 5,
   },
 });

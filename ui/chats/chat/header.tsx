@@ -19,7 +19,7 @@ const ChatHeader: React.FC<any> = ({ navigation }) => {
         <HStack>
           <IconButton
             icon={<Ionicons name="arrow-back" size={24} color="white" />}
-            onPress={() => navigation.goBack()}
+            onPress={() => navigation.goBack()} 
             variant="unstyled"
           />
           <Box mr={1} flexDirection="row" alignItems="center">
